@@ -14,6 +14,8 @@ Notable changes to this repository. Dates are ISO 8601.
 
 ### Changed
 
+- Validator now rejects links that resolve outside the repository (a root-relative link such as `/etc/hosts` previously passed) and rejects em dashes in authored prose.
+- Added a Troubleshooting pointer to Getting started, and reworded the exercise 4 premise so it makes no unsupported claim.
 - Verified Claude for Microsoft 365 against Anthropic's product page and replaced the unverified-product caveat.
 - Documented the Anthropic Trademark Guidelines and the residual naming risk in `NOTICE.md`.
 - Added the maintainer's course completion badge link to the README.

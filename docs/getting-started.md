@@ -41,6 +41,7 @@ You have just used the three habits the rest of the guide builds on: supply cont
 - Need to pick a feature for a task: [Choosing the right tool](choosing-the-right-tool.md).
 - Want repeatable habits for judging output: [AI Fluency and evaluation](ai-fluency-and-evaluation.md).
 - Using Claude with company data or external tools: [Connectors and MCP](connectors-and-mcp.md) and [Security and privacy](security-and-privacy.md).
+- Something did not work as expected: [Troubleshooting](troubleshooting.md).
 
 ## Limitations
 
