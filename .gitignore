@@ -1,0 +1,21 @@
+# OS and editor
+.DS_Store
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Secrets and local configuration
+.env
+.env.*
+*.pem
+*.key
+
+# Local-only notes and agent state; never published
+.claude/
+CLAUDE.md
+.handoff/
+*.local.md
