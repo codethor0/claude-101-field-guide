@@ -1,5 +1,7 @@
 # Claude 101 Field Guide
 
+[![Validate](https://github.com/codethor0/claude-101-field-guide/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/codethor0/claude-101-field-guide/actions/workflows/validate.yml)
+
 A practical, independently written guide to using Claude: how to prompt it, choose the right feature, connect it to tools, check its output, and work with it safely. It includes seven hands-on exercises with synthetic data and a small validation script for the documentation itself.
 
 > Independent educational resource. Not affiliated with, sponsored by, or endorsed by Anthropic or Claude Academy. Claude and associated product names belong to their respective owners.
