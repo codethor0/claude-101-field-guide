@@ -13,7 +13,7 @@ This page separates what Anthropic documents from what is not verified here. Ava
 | Claude Tag | Tag @Claude in Slack to work in channels | Yes: [support article](https://support.claude.com/en/articles/15594475-what-is-claude-tag) | Described as beta for Team and Enterprise; set up by an Owner |
 | Claude Design | Create designs, prototypes, and one-pagers | Yes: [support article](https://support.claude.com/en/articles/14604416-get-started-with-claude-design) | Available as an artifact template; the article notes a standalone site is closing in December 2026 |
 | Claude in Chrome | Browser extension that acts on websites on your behalf | Yes: [safety article](https://support.claude.com/en/articles/12902428-use-claude-in-chrome-safely) | Beta; paid plans; prompt injection risk is acknowledged |
-| Claude for Excel, PowerPoint, Word, Outlook | The course refers to "Claude for Microsoft 365" | Not independently confirmed here | Look up each product in the Help Center before relying on a feature |
+| Claude for Excel, PowerPoint, Word, Outlook | Works inside each Microsoft 365 application: Excel (cells, formulas, models), PowerPoint (slides in your template), Word (tracked changes, comment threads), Outlook (inbox triage, drafts, scheduling) | Yes: [product page](https://claude.com/claude-for-microsoft-365) | The page states these are generally available on all paid plans; check the Help Center for plan and admin details |
 
 "Verified" means the cited page described the product on 2026-11-20. It does not mean this repository tested the product.
 
@@ -22,7 +22,7 @@ This page separates what Anthropic documents from what is not verified here. Ava
 - **Desktop app.** Use the conversation mode for quick back-and-forth, delegated mode for longer tasks you review later, and code mode for software work. Pick by how much supervision the task needs.
 - **Claude Tag.** Questions and tasks that arise inside a team's Slack channels. Check what channel content Claude can see and who can see its output, since a channel is a shared space.
 - **Claude Design.** Visual drafts you will refine; check exported output for text and layout errors.
-- **Microsoft 365 integrations.** Working inside spreadsheets, documents, decks, or email you already have open. Verify formulas, tracked changes, and sent messages yourself.
+- **Microsoft 365 integrations.** Working inside spreadsheets, documents, decks, or email you already have open. Anthropic's page says edits are reviewable (tracked changes in Word, highlighted cells in Excel, Outlook drafts that wait for you to send). That is a product claim: confirm the behavior on a harmless file first, and verify formulas, tracked changes, and any message before it is sent.
 - **Claude in Chrome.** Repeating web steps (filling forms, gathering information from pages). Use the safety guidance below.
 
 ## Browser automation boundaries
@@ -45,4 +45,5 @@ This page is the most likely in the repository to go stale. Verify against the l
 ## Official reference
 
 - Claude 101, "Other ways to work with Claude": <https://academy.claude.com/courses/claude-101>
+- Claude for Microsoft 365: <https://claude.com/claude-for-microsoft-365>
 - Help Center: <https://support.claude.com/>

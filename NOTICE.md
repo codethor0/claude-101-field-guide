@@ -29,7 +29,7 @@ Code snippets inside prose files (for example `check_brief.py` in exercise 7) ar
 
 ## Trademark note
 
-The disclaimer wording is used as a clear statement of independence. Anthropic's brand guidance was not located during the review of this repository, so the wording has not been checked against it. See [resources/sources-and-verification.md](resources/sources-and-verification.md).
+Anthropic's [Trademark Guidelines](https://www.anthropic.com/legal/trademark-guidelines) (effective 2024-08-01) state that its trademarks may be used only as Anthropic permits and in materials it approves, and that they may not be used in a way that implies sponsorship, endorsement, or affiliation. This repository includes no logos, brand assets, or trademark symbols, refers to the products only by name to describe what they are, and states that it is independent. The guidelines contain no explicit exception for descriptive references, and no permission has been requested. Anthropic can ask for changes, including to the repository name. See [resources/sources-and-verification.md](resources/sources-and-verification.md).
 
 ## Contributor identity
 

@@ -54,6 +54,10 @@ Seven original exercises. Each has an objective, prerequisites, input data, a co
 
 Generated output varies between runs. The exercises describe what to look for, not exact text.
 
+## Author background
+
+The maintainer completed the Claude Academy course Claude 101 and earned its completion badge on 2026-11-20: [badge verification page](https://academy.claude.com/verify/945193f993a9384624baa3f84e8931b8). The badge shows course completion only. It is not a professional certification, and it does not mean Anthropic reviewed or endorses this repository.
+
 ## Prerequisites
 
 - To read: a web browser.
@@ -89,7 +93,8 @@ Read [Security and privacy](docs/security-and-privacy.md) before connecting tool
 ## Known limitations
 
 - Product features, plans, and limits change. Each page has a review date; check the linked official source before relying on a detail.
-- Claude for Excel, PowerPoint, Word, and Outlook are not independently verified here. See [Other Claude tools](docs/other-claude-tools.md).
+- Product statements about Claude for Microsoft 365 come from Anthropic's product page and were not tested hands-on. See [Other Claude tools](docs/other-claude-tools.md).
+- Anthropic has not reviewed or approved this repository's use of its names. See [NOTICE.md](NOTICE.md).
 - The guide has not been tested against every plan or administrator configuration.
 - Exercises were written against the product behavior described on 2026-11-20 and may need adjustment.
 - This is not a substitute for the official documentation or for professional advice.

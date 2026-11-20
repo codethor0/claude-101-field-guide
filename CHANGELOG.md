@@ -12,4 +12,10 @@ Notable changes to this repository. Dates are ISO 8601.
 - `scripts/validate.py` with unit tests, and a GitHub Actions workflow that runs them.
 - MIT license for code, CC BY 4.0 for written content, and a notice describing scope.
 
+### Changed
+
+- Verified Claude for Microsoft 365 against Anthropic's product page and replaced the unverified-product caveat.
+- Documented the Anthropic Trademark Guidelines and the residual naming risk in `NOTICE.md`.
+- Added the maintainer's course completion badge link to the README.
+
 Content reviewed against official sources on 2026-11-20.

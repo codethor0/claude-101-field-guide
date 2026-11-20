@@ -80,6 +80,8 @@ Grouped by the Academy's categories.
 | Enterprise Search | [Use Enterprise Search](https://support.claude.com/en/articles/12489464-use-enterprise-search) |
 | Research | [Use Research](https://support.claude.com/en/articles/11088861-use-research-on-claude) |
 | Claude Code security | [Security](https://code.claude.com/docs/en/security) |
+| Claude for Microsoft 365 | [Product page](https://claude.com/claude-for-microsoft-365) |
+| Anthropic trademarks | [Trademark guidelines](https://www.anthropic.com/legal/trademark-guidelines) |
 | Claude in Chrome | [Use Claude in Chrome safely](https://support.claude.com/en/articles/12902428-use-claude-in-chrome-safely) |
 | Claude Tag | [What is Claude Tag](https://support.claude.com/en/articles/15594475-what-is-claude-tag) |
 | Claude Design | [Get started with Claude Design](https://support.claude.com/en/articles/14604416-get-started-with-claude-design) |

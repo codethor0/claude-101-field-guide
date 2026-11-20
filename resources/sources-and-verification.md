@@ -24,8 +24,9 @@ How the claims in this repository were checked, and what was not.
 | Claude Code description | [Overview](https://code.claude.com/docs/en/overview) | Confirmed |
 | Claude in Chrome: beta, paid plans, injection risk "not zero" | [Safety article](https://support.claude.com/en/articles/12902428-use-claude-in-chrome-safely) | Confirmed |
 | Claude Tag: Slack, beta, Team and Enterprise | [What is Claude Tag](https://support.claude.com/en/articles/15594475-what-is-claude-tag) | Confirmed |
+| Claude for Excel, PowerPoint, Word, Outlook exist; GA on all paid plans (page statement) | [Product page](https://claude.com/claude-for-microsoft-365) | Confirmed on the page on 2026-11-20. Feature claims such as "nothing is saved until you say so" are Anthropic's own and were not tested here |
 | Claude Design availability | [Get started](https://support.claude.com/en/articles/14604416-get-started-with-claude-design) | Confirmed |
-| AI Fluency: 4Ds; Dakan and Feller; CC BY-NC-SA 4.0 on the course page | [Course page](https://academy.claude.com/courses/ai-fluency-framework-foundations) | Confirmed for the course page. The framework document's own license was not checked |
+| AI Fluency: 4Ds; "Copyright 2025 Rick Dakan, Joseph Feller, and Anthropic. Released under the CC BY-NC-SA 4.0 license." on the course page | [Course page](https://academy.claude.com/courses/ai-fluency-framework-foundations) | Confirmed for the course page. The framework document's own license was not checked |
 
 ## Supporting details checked in the same pages
 
@@ -35,9 +36,8 @@ These details appear in the guides and were read in the Help Center articles abo
 
 | Item | Notes |
 |---|---|
-| Claude for Excel, PowerPoint, Word, Outlook | No official page was found during the review. The course page says "Claude for Microsoft 365". Described as unverified in the guide |
-| Anthropic brand and trademark guidance for third parties | The URLs guessed during research returned 404. The disclaimer wording is a plain nominative statement, not a reviewed approved text. See [NOTICE.md](../NOTICE.md) |
-| Public badge verification URL | The Academy FAQ says badges have a public verification link but does not give a URL pattern. No badge link is included |
+| Permission to use Anthropic names | The [Trademark Guidelines](https://www.anthropic.com/legal/trademark-guidelines) (effective 2024-08-01) allow use of the marks only as Anthropic specifically permits and in materials it approves beforehand, and they contain no stated exception for descriptive references. No permission has been requested or granted. See [NOTICE.md](../NOTICE.md) |
+| Badge details | The README links the maintainer's badge verification page. That page renders its content in the browser; the name and issue date shown on it were not read programmatically, so the issue date in the README is the maintainer's statement |
 | Whether Academy course content may be reused | The Academy FAQ says Anthropic does not offer content licensing. This repository therefore contains no Academy content, only links |
 | Extended thinking behavior | The guides describe it generally (reasoning without web access). No page was cited for it; check the Help Center |
 | Artifact comments and version history | Not confirmed; the artifacts guide says so |
