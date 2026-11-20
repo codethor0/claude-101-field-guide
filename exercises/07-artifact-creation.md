@@ -50,16 +50,18 @@ Save as `check_brief.py` and run `python3 check_brief.py brief.txt`.
 import sys
 
 text = open(sys.argv[1], encoding="utf-8").read()
-required = ["Decisions", "Open questions", "Actions"]
-missing = [h for h in required if h not in text]
-words = len(text.split())
+required = ["decisions", "open questions", "actions"]
+headings = [ln.lstrip("# ").strip().lower() for ln in text.splitlines()
+            if ln.strip() and (ln.startswith("#") or len(ln.split()) <= 3)]
+missing = [h for h in required if h not in headings]
+words = len(text.replace("#", " ").split())
 
 print("missing headings:", missing or "none")
 print("word count:", words, "(limit 200)")
 sys.exit(1 if missing or words >= 200 else 0)
 ```
 
-Scripts only check structure and length. Criteria 2, 3, 4, and 6 need you to read the notes.
+The script treats a line as a heading if it starts with `#` or has three words or fewer, and ignores case. Scripts only check structure and length. Criteria 2, 3, 4, and 6 need you to read the notes.
 
 ## Expected result characteristics
 

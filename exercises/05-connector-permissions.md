@@ -24,12 +24,28 @@ Fictional setup for Priya, an operations coordinator at Northwind Supply (a made
 
 Instructions given to Claude: "Never share confidential data and do not delete anything."
 
+## Copy-ready prompt (optional)
+
+Try your own review first, then compare with Claude:
+
+```text
+Review this connector setup for a weekly supplier-delay summary. List every
+permission that is broader than the task needs, what could go wrong with it
+(including a prompt injection scenario), and a safer configuration. Say which
+controls are enforced by permissions and which only by instructions.
+Setup: [paste the table]
+```
+
 ## Steps
 
 1. List every excess permission.
 2. Say what could go wrong for each, including a prompt injection scenario.
 3. Propose a configuration that still supports the weekly summary.
 4. Say which of your controls are enforced by permissions and which only by instructions.
+
+## Expected result characteristics
+
+A configuration where each connector is read-only and scoped to the supplier-delay material, shared credentials are replaced by individual sign-in, the unverified server is gone, and no control depends only on a prompt instruction.
 
 ## Answer key (for this scenario)
 

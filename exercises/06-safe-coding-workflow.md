@@ -11,8 +11,10 @@ Use inspect, plan, implement, validate, review, report on a small repository, wi
 Python 3 and a coding assistant such as Claude Code. Read [Claude Code](../docs/claude-code.md). The sample is [`examples/sample-repo`](../examples/sample-repo/README.md). Copy it out of this repository so you work in your own repo:
 
 ```sh
-cp -R examples/sample-repo /tmp/slug-practice
-cd /tmp/slug-practice
+PRACTICE=$(mktemp -d)
+cp -R examples/sample-repo/. "$PRACTICE"
+cd "$PRACTICE"
+find . -name __pycache__ -prune -exec rm -rf {} +
 git init -q -b main && git add . && git commit -q -m "Initial sample"
 python3 -m unittest
 ```
@@ -35,7 +37,7 @@ add, and how you will validate. Stop and wait for my approval.
 ## Steps
 
 1. Run stage 1. Read the plan. Check it against the repository yourself.
-2. Approve with limits: "Edit only slugify.py and test_slugify.py. Do not commit."
+2. Approve with limits: "Edit only slugify.py, test_slugify.py, and the known-gap line in README.md. Do not commit."
 3. Let it implement. Read the diff (`git diff`).
 4. Run `python3 -m unittest` yourself.
 5. Ask for a review: "List any behavior you did not test, and any existing test you changed."
@@ -44,7 +46,7 @@ add, and how you will validate. Stop and wait for my approval.
 
 ## Expected result characteristics
 
-- The plan names `slugify.py` and `test_slugify.py` and nothing else.
+- The plan names `slugify.py`, `test_slugify.py`, and the README note about the known gap, and nothing else.
 - New tests cover `"a  b"`, `"a - b"`, and `"a---b"`.
 - Existing tests are unchanged.
 - The report separates what was run from what was assumed.

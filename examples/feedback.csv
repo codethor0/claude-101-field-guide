@@ -1,9 +1,0 @@
-id,date,channel,text
-1,2026-03-02,email,The export button is hard to find
-2,2026-03-04,survey,Export to CSV failed twice on large files
-3,2026-03-05,chat,Love the new dashboard layout
-4,2026-03-09,email,I could not find where to export my data
-5,2026-03-11,survey,Dashboard loads slowly on Mondays
-6,2026-03-12,chat,Export finished but the file was empty
-7,2026-03-15,survey,Please add dark mode
-8,2026-03-18,email,Dashboard is slow again this morning

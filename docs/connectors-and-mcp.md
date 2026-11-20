@@ -21,8 +21,8 @@ Per Anthropic's help documentation (reviewed 2026-11-20), local servers do not r
 
 ## Authentication, scope, and revocation
 
-- **Authentication.** Most connectors use OAuth: you sign in with the service, and Claude does not see your password. Some use an API key or token, which is a stored credential, so treat it like a password.
-- **Scope.** Claude can reach only what the connected account or token can reach. Connecting a tool does not grant more than the account has, and it also does not limit Claude below what the account has. Account-level permissions are the real boundary.
+- **Authentication.** Anthropic's documentation describes two common methods: OAuth, where you sign in with the service and Claude does not see your password, and fixed credentials such as an API key or bearer token, which are stored credentials, so treat them like passwords.
+- **Scope.** Claude can never exceed what the connected account or token can reach. Scopes and per-tool settings can narrow access further. Account-level permissions are the outer boundary, so start there.
 - **Data retrieval versus actions.** Reading a document and creating or deleting something are different permissions. Many connectors offer both. Review which tool calls are enabled and require approval for anything that changes data.
 - **Revocation.** Disconnect in Claude's settings, and also revoke the grant in the service's own security settings. Removal in only one place may leave access active in the other.
 - **Least privilege.** Grant the narrowest access that does the job: read-only before read-write, one project before the whole workspace, a service account before a personal admin account.

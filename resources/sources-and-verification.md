@@ -27,6 +27,10 @@ How the claims in this repository were checked, and what was not.
 | Claude Design availability | [Get started](https://support.claude.com/en/articles/14604416-get-started-with-claude-design) | Confirmed |
 | AI Fluency: 4Ds; Dakan and Feller; CC BY-NC-SA 4.0 on the course page | [Course page](https://academy.claude.com/courses/ai-fluency-framework-foundations) | Confirmed for the course page. The framework document's own license was not checked |
 
+## Supporting details checked in the same pages
+
+These details appear in the guides and were read in the Help Center articles above on 2026-11-20: skills need code execution enabled; project retrieval applies on paid plans; artifact sharing settings are managed on web or desktop; Enterprise Search uses Anthropic-maintained instructions and is not on mobile; Claude Tag setup is by an Owner; Research typically runs for a few minutes.
+
 ## Not confirmed
 
 | Item | Notes |
@@ -35,6 +39,8 @@ How the claims in this repository were checked, and what was not.
 | Anthropic brand and trademark guidance for third parties | The URLs guessed during research returned 404. The disclaimer wording is a plain nominative statement, not a reviewed approved text. See [NOTICE.md](../NOTICE.md) |
 | Public badge verification URL | The Academy FAQ says badges have a public verification link but does not give a URL pattern. No badge link is included |
 | Whether Academy course content may be reused | The Academy FAQ says Anthropic does not offer content licensing. This repository therefore contains no Academy content, only links |
+| Extended thinking behavior | The guides describe it generally (reasoning without web access). No page was cited for it; check the Help Center |
+| Artifact comments and version history | Not confirmed; the artifacts guide says so |
 | Desktop extension removal steps | Not found in the documentation reviewed |
 
 ## Link review

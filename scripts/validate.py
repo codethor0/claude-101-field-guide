@@ -2,7 +2,7 @@
 """Validate repository structure, links, metadata, and hygiene.
 
 Uses only the Python standard library and makes no network requests.
-Usage: python3 scripts/validate.py [repo_root]
+Usage: python3 scripts/validate.py [repo_root]  (default: the repository containing this script)
 Exit status is 0 when all checks pass and 1 otherwise.
 """
 
@@ -10,6 +10,7 @@ import ast
 import hashlib
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -51,6 +52,8 @@ DISCLAIMER = (
 EXERCISE_HEADINGS = [
     "Objective",
     "Prerequisites",
+    "Copy-ready prompt",
+    "Expected result characteristics",
     "Verification checklist",
     "Common failure modes",
     "Follow-up",
@@ -66,8 +69,10 @@ HYGIENE_PATTERNS = {
     "GitHub token": re.compile(r"\bgh[pousr]_[A-Za-z0-9]{30,}"),
     "Anthropic API key": re.compile(r"\bsk-ant-[A-Za-z0-9_-]{20,}"),
     "AWS access key id": re.compile(r"\bAKIA[0-9A-Z]{16}\b"),
-    "home directory path": re.compile(r"/(?:Users|home)/[a-z][a-z0-9_.-]+/"),
+    "home directory path": re.compile(r"/(?:Users|home)/[a-z][a-z0-9_.-]+/", re.I),
+    "Windows user path": re.compile(r"[A-Za-z]:\\Users\\[A-Za-z]", re.I),
     "AI co-author trailer": re.compile(r"Co-Authored-[B]y:", re.I),
+    "AI generation attribution": re.compile(r"Generated (?:with|by) \[?Claude", re.I),
     "personal email address": re.compile(
         r"\b[A-Za-z0-9._-]+@(?:gmail|icloud|outlook|hotmail|yahoo)\.com\b"
     ),
@@ -79,8 +84,25 @@ LINK = re.compile(r"(?<!\!)\[[^\]]*\]\(([^)\s]+)(?:\s+\"[^\"]*\")?\)")
 DATE = re.compile(r"^Last reviewed: \d{4}-\d{2}-\d{2}\s*$", re.M)
 
 
+def _git_files(root: Path):
+    """Tracked plus untracked-but-not-ignored files, or None outside a checkout."""
+    if not (root / ".git").exists():
+        return None
+    try:
+        out = subprocess.run(
+            ["git", "-C", str(root), "ls-files", "-z", "--cached", "--others", "--exclude-standard"],
+            capture_output=True, check=True, timeout=30,
+        ).stdout
+    except (OSError, subprocess.SubprocessError):
+        return None
+    return [root / n for n in out.decode("utf-8").split("\0") if n]
+
+
 def list_files(root: Path):
-    for path in sorted(root.rglob("*")):
+    listed = _git_files(root)
+    if listed is None:
+        listed = list(root.rglob("*"))
+    for path in sorted(listed):
         if path.is_file() and not (set(path.relative_to(root).parts) & SKIP_DIRS):
             yield path
 
@@ -176,7 +198,7 @@ def check_exercises(root: Path):
     if index.is_file():
         body = index.read_text(encoding="utf-8")
         for path in files:
-            if path.name not in body:
+            if f"]({path.name})" not in body:
                 errors.append(f"exercises/README.md: does not link {path.name}")
     return errors
 
@@ -219,7 +241,8 @@ def check_code(root: Path):
             for i, line in enumerate(lines, 1):
                 if FENCE.match(line):
                     if lang is None:
-                        lang = line.strip()[3:].strip().lower() or ""
+                        info = line.strip()[3:].strip().lower().split()
+                        lang = info[0] if info else ""
                         buf, start = [], i
                     else:
                         errors += _check_block(name, lang, "\n".join(buf), start)
@@ -264,22 +287,28 @@ def check_hygiene(root: Path):
 
 
 def check_workflow(root: Path):
-    path = root / ".github/workflows/validate.yml"
-    if not path.is_file():
-        return []
-    text = path.read_text(encoding="utf-8")
     errors = []
-    if "pull_request_target" in text:
-        errors.append("workflow: pull_request_target is not allowed")
-    if not re.search(r"^permissions:\s*\n\s+contents:\s*read\s*$", text, re.M):
-        errors.append("workflow: top-level 'permissions: contents: read' required")
-    if "persist-credentials: false" not in text:
-        errors.append("workflow: checkout must set persist-credentials: false")
-    if "timeout-minutes:" not in text:
-        errors.append("workflow: timeout-minutes required")
-    for use in re.findall(r"uses:\s*(\S+)", text):
-        if not re.search(r"@[0-9a-f]{40}$", use):
-            errors.append(f"workflow: action not pinned to a full commit SHA: {use}")
+    folder = root / ".github/workflows"
+    files = sorted(folder.glob("*.y*ml")) if folder.is_dir() else []
+    for path in files:
+        name = rel(path, root)
+        text = path.read_text(encoding="utf-8")
+        if "pull_request_target" in text:
+            errors.append(f"{name}: pull_request_target is not allowed")
+        top = re.search(r"^permissions:[ \t]*\n((?:[ \t]+\S.*\n?)+)", text, re.M)
+        if not top or [ln.strip() for ln in top.group(1).splitlines() if ln.strip()] != ["contents: read"]:
+            errors.append(f"{name}: top-level permissions must be exactly 'contents: read'")
+        if re.search(r"^\s*permissions:\s*(write-all|read-all)?\s*$", text, re.M) and text.count("permissions:") > 1:
+            errors.append(f"{name}: job-level permissions are not allowed")
+        if re.search(r":\s*write\b", text):
+            errors.append(f"{name}: write permission is not allowed")
+        if "persist-credentials: false" not in text:
+            errors.append(f"{name}: checkout must set persist-credentials: false")
+        if "timeout-minutes:" not in text:
+            errors.append(f"{name}: timeout-minutes required")
+        for use in re.findall(r"uses:\s*(\S+)", text):
+            if not re.search(r"@[0-9a-f]{40}$", use):
+                errors.append(f"{name}: action not pinned to a full commit SHA: {use}")
     return errors
 
 
@@ -298,7 +327,7 @@ CHECKS = [
 
 
 def main(argv):
-    root = Path(argv[1] if len(argv) > 1 else ".").resolve()
+    root = Path(argv[1]).resolve() if len(argv) > 1 else Path(__file__).resolve().parent.parent
     failed = 0
     for label, fn in CHECKS:
         errors = fn(root)

@@ -42,7 +42,7 @@ No installation is needed to read or follow the guides.
 
 ## Hands-on exercises
 
-Seven original exercises, each with an objective, prerequisites, input data, a copy-ready prompt, expected result characteristics, a verification checklist, common failure modes, and a follow-up. Index: [exercises/README.md](exercises/README.md).
+Seven original exercises. Each has an objective, prerequisites, input data, a copy-ready prompt, expected result characteristics, a verification checklist, common failure modes, and a follow-up; the validator enforces these headings. Index: [exercises/README.md](exercises/README.md).
 
 1. [Prompt refinement](exercises/01-prompt-refinement.md)
 2. [Select the right capability](exercises/02-select-the-capability.md)

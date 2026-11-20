@@ -85,6 +85,21 @@ class ValidatorTests(unittest.TestCase):
         make(self.root, {"a.md": f"one\n\n{para}\n", "b.md": f"two\n\n{para}\n"})
         self.assertTrue(any("duplicated paragraph" in e for e in v.check_duplicates(self.root)))
 
+    def test_fence_with_extra_info_string_is_checked(self):
+        make(self.root, {"d.md": "```python title=x\nx = (\n```\n"})
+        self.assertEqual(len(v.check_code(self.root)), 1)
+
+    def test_hygiene_case_insensitive_paths_and_attribution(self):
+        make(self.root, {"a.md": "/Us" + "ers/Someone/x\n", "b.md": "Generated " + "with Claude Code\n"})
+        self.assertEqual(len(v.check_hygiene(self.root)), 2)
+
+    def test_exercise_index_requires_link_not_substring(self):
+        body = "".join(f"## {h}\n\n" for h in v.EXERCISE_HEADINGS)
+        files = {f"exercises/0{i}-x.md": body for i in range(1, 6)}
+        files["exercises/README.md"] = "0".join("") + " ".join(f"mention 0{i}-x.md" for i in range(1, 6))
+        make(self.root, files)
+        self.assertEqual(len([e for e in v.check_exercises(self.root) if "does not link" in e]), 5)
+
     def test_python_syntax_errors(self):
         make(
             self.root,
@@ -133,6 +148,13 @@ class ValidatorTests(unittest.TestCase):
         )
         make(self.root, {".github/workflows/validate.yml": good})
         self.assertEqual(v.check_workflow(self.root), [])
+        wider = good.replace("contents: read", "contents: read\n  issues: write")
+        make(self.root, {".github/workflows/validate.yml": wider})
+        self.assertTrue(any("exactly" in e for e in v.check_workflow(self.root)))
+        make(self.root, {".github/workflows/validate.yml": good})
+        make(self.root, {".github/workflows/other.yml": good.replace("a" * 40, "v4")})
+        self.assertTrue(any("other.yml" in e and "not pinned" in e for e in v.check_workflow(self.root)))
+        (self.root / ".github/workflows/other.yml").unlink()
         bad = good.replace("a" * 40, "v4") + "on: pull_request_target\n"
         make(self.root, {".github/workflows/validate.yml": bad})
         errs = v.check_workflow(self.root)

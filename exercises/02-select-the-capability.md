@@ -38,6 +38,10 @@ in two sentences and name the main risk. Tasks: [paste table]
 
 Then compare Claude's answer with yours. Disagreement is useful; decide who is right.
 
+## Expected result characteristics
+
+Each choice is tied to the number of sources and where the information lives. Each risk is specific to its scenario. Claude's answer, if you run the optional check, may differ from the key; decide which reasoning holds up.
+
 ## Answer key (for these scenarios only)
 
 | # | Suggested choice | Why | Risk | Verification |
@@ -47,7 +51,7 @@ Then compare Claude's answer with yours. Disagreement is useful; decide who is r
 | C | Extended thinking | All inputs are supplied; no outside facts needed | Arithmetic slips | Recompute the critical path yourself |
 | D | Enterprise Search | Internal documents and chat | Missed or conflicting sources | Open cited documents; check dates |
 
-Other reasonable answers exist. Marks for D: if Enterprise Search is unavailable, a connector to the document store and the chat tool is a fallback.
+Other reasonable answers exist. Note for D: if Enterprise Search is unavailable, a connector to the document store and the chat tool is a fallback.
 
 ## Verification checklist
 

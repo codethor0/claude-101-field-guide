@@ -20,10 +20,9 @@ Vague request:
 Write a reminder message for volunteers.
 ```
 
-## Steps
+## Copy-ready prompt
 
-1. Run the vague request. Save the output.
-2. Rewrite it using the three elements. Use this example, then adapt it:
+Structured version, to run after the vague one. Adapt it to your own wording:
 
 ```text
 Context: I coordinate a food bank with about 40 volunteers. Most are
@@ -40,8 +39,11 @@ Rules:
 - Do not mention donations.
 ```
 
-3. Run it. Save the output.
-4. Give one targeted correction to the second output, for example: "Keep the same message but address the volunteer by [NAME] and remove the closing thanks."
+## Steps
+
+1. Run the vague request. Save the output.
+2. Run the structured prompt above. Save the output.
+3. Give one targeted correction to the second output, for example: "Keep the same message but address the volunteer by [NAME] and remove the closing thanks."
 
 ## Expected result characteristics
 
@@ -56,7 +58,7 @@ Rules:
 - [ ] No exclamation marks.
 - [ ] The cancel instruction is present.
 - [ ] No mention of donations.
-- [ ] After step 4, the rest of the message is unchanged.
+- [ ] After step 3, the rest of the message is unchanged.
 
 ## Common failure modes
 

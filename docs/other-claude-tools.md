@@ -11,7 +11,7 @@ This page separates what Anthropic documents from what is not verified here. Ava
 | Claude desktop app: Chat, Cowork, Code | The Claude 101 course describes three shapes of work: turn-by-turn conversation, handing work off, and building software | Course page only | Check the Help Center for current naming and plans |
 | Claude Code | Agentic coding tool in terminal, IDE, desktop, and web | Yes: [overview](https://code.claude.com/docs/en/overview) | See [Claude Code](claude-code.md) |
 | Claude Tag | Tag @Claude in Slack to work in channels | Yes: [support article](https://support.claude.com/en/articles/15594475-what-is-claude-tag) | Described as beta for Team and Enterprise; set up by an Owner |
-| Claude Design | Create designs, prototypes, and one-pagers | Yes: [support article](https://support.claude.com/en/articles/14604416-get-started-with-claude-design) | Available as an artifact template; the article notes a standalone site closing on 2026-12-14 |
+| Claude Design | Create designs, prototypes, and one-pagers | Yes: [support article](https://support.claude.com/en/articles/14604416-get-started-with-claude-design) | Available as an artifact template; the article notes a standalone site is closing in December 2026 |
 | Claude in Chrome | Browser extension that acts on websites on your behalf | Yes: [safety article](https://support.claude.com/en/articles/12902428-use-claude-in-chrome-safely) | Beta; paid plans; prompt injection risk is acknowledged |
 | Claude for Excel, PowerPoint, Word, Outlook | The course refers to "Claude for Microsoft 365" | Not independently confirmed here | Look up each product in the Help Center before relying on a feature |
 

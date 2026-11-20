@@ -15,7 +15,7 @@ The AI Fluency framework was developed by Rick Dakan (Ringling College of Art an
 
 The first two happen before and during the request. The last two happen after. Skipping Discernment and Diligence is the usual way people get into trouble, because fluent output feels finished.
 
-The AI Fluency course is published under CC BY-NC-SA 4.0. This repository does not copy it and does not relicense it. See [NOTICE.md](../NOTICE.md).
+The course page states that it is released under CC BY-NC-SA 4.0. This repository does not copy the course or framework text and does not relicense it; the table above is an original summary, not an adaptation. See [NOTICE.md](../NOTICE.md).
 
 ## Applying the 4Ds to one task
 
@@ -40,7 +40,7 @@ Discernment scales into evaluation when you will run the same task many times (a
 
 Keep the examples and results in a file. A change that fixes one case and breaks another is common.
 
-## Four checks worth automating
+## Four checks worth scripting where possible
 
 | Check | Question | Method |
 |---|---|---|

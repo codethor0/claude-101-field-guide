@@ -22,8 +22,7 @@ Avoid it when a short answer in chat is enough, or when the content is sensitive
 |---|---|
 | Ask for a revision | "Tighten section 2 to three sentences. Leave the rest unchanged." |
 | Edit directly | Fix a number or a name yourself; faster and exact. |
-| Comments | Mark a specific passage and ask for a targeted change. |
-| Version history | Compare revisions or go back after a bad edit. |
+| Comments and revisions | Where your plan and artifact type support them, mark a specific passage or return to an earlier version. Not verified here; check the Help Center. |
 
 State what must not change. Without that, a revision may alter text you already approved.
 

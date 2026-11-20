@@ -33,7 +33,7 @@ Claude Code asks permission before actions such as running commands or editing f
 - Usually: installing dependencies, changing CI or deployment configuration.
 - Rarely: reading files and running tests.
 
-Permission to commit is not permission to push, and permission to push to a branch is not permission to change visibility or release. Grant approval per action and per scope. See the permissions and security pages for the current settings.
+Permission to commit is not permission to push, and permission to push to a branch is not permission to change visibility or release. Grant approval per action and per scope. See the security page for current settings.
 
 ## Why passing tests does not prove correctness
 

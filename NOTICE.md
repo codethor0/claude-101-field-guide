@@ -13,12 +13,12 @@ This repository is a companion written by codethor0 after completing the Claude 
 | Code and scripts: `scripts/`, `examples/sample-repo/*.py`, `.github/workflows/` | [MIT](LICENSE) |
 | Original prose, tables, and written examples: `README.md`, `docs/`, `exercises/`, `resources/`, `examples/` (non-code files), and other repository text | [CC BY 4.0](CONTENT_LICENSE.md) |
 
-Both licenses apply only to material authored for this repository.
+Code snippets inside prose files (for example `check_brief.py` in exercise 7) are also available under the MIT license. Both licenses apply only to material authored for this repository.
 
 ## What these licenses do not cover
 
 - Claude Academy courses, lessons, quizzes, media, illustrations, and badges. They belong to Anthropic. This repository contains none of them and links to the originals. The Academy FAQ states that Anthropic does not offer content licensing.
-- The AI Fluency framework by Rick Dakan and Joseph Feller. The Academy course page states it is released under CC BY-NC-SA 4.0. This repository summarizes the idea in its own words and links to the source. That text is not relicensed here, and the repository's CC BY 4.0 license does not apply to it.
+- The AI Fluency framework by Rick Dakan and Joseph Feller. The Academy course page states that the course is released under CC BY-NC-SA 4.0 (the license of the framework document itself was not checked). This repository summarizes the idea in its own words and links to the source. That text is not relicensed here, and the repository's CC BY 4.0 license does not apply to it.
 - Anthropic names, logos, and trademarks. They are used only to refer to the products. No logo is included.
 - Linked websites and documentation, which remain under their publishers' terms.
 
