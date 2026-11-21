@@ -18,7 +18,7 @@ Corrections and improvements are welcome, especially fixes for outdated or inacc
 
 ## Writing standards
 
-- Be clear, concise, and direct. No filler, hype, or emojis.
+- Be clear, concise, and direct. No filler, hype, emojis, or em dashes (the validator rejects em dashes).
 - State what is verified and what is an assumption. Cite the official page for product claims.
 - Add or update `Last reviewed: YYYY-MM-DD` when you verify a page.
 - Do not repeat definitions that already exist elsewhere; link to them.

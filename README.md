@@ -64,7 +64,7 @@ The maintainer completed the Claude Academy course Claude 101 and earned its com
 
 - To read: a web browser.
 - To do exercises: a Claude account. Some features need a paid plan; each exercise says so.
-- To run the repository checks: Python 3 (standard library only; no packages to install) and Git.
+- To run the repository checks: Python 3.9 or later (standard library only; no packages to install) and Git.
 
 ## Running the checks
 
@@ -76,7 +76,7 @@ python3 scripts/validate.py               # structure, links, hygiene, code synt
 (cd examples/sample-repo && python3 -m unittest)   # sample repository tests
 ```
 
-The validator makes no network requests. It checks required files, the disclaimer, relative links and anchors, review dates, exercise structure, duplicated content, code-block syntax, forbidden file types, secret-like strings, and the CI workflow's security settings. GitHub Actions runs the same commands on pull requests and pushes to `main`.
+The validator makes no network requests. It checks required files, the disclaimer, relative links and anchors, review dates, exercise structure, duplicated content, code-block syntax, forbidden file types, secret-like strings, em dashes in prose, and the CI workflow's security settings. GitHub Actions runs the same commands on pull requests and pushes to `main`.
 
 External links are reviewed by hand before releases and are not checked in CI.
 
