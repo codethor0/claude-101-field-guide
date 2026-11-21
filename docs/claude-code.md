@@ -55,7 +55,7 @@ hyphens, listing the files you will touch and the test you will add. Wait
 for my approval before editing.
 ```
 
-[Exercise 6](../exercises/06-safe-coding-workflow.md) practices this on a small sample repository.
+[Exercise 6](../exercises/06-safe-coding-workflow.md) practices this on a small sample repository. For a worked walkthrough that starts from a written specification and a `CLAUDE.md` file, see [Before You Build](before-you-build.md).
 
 ## Repository secret hygiene
 

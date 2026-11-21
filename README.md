@@ -14,7 +14,7 @@ The guide is a companion to Anthropic's Claude Academy course [Claude 101](https
 |---|---|---|
 | **Beginner**: never used Claude | [Getting started](docs/getting-started.md) | [Prompt engineering](docs/prompt-engineering.md), [Exercise 1](exercises/01-prompt-refinement.md) |
 | **Working professional**: wants repeatable workflows | [Choosing the right tool](docs/choosing-the-right-tool.md) | [Projects and Skills](docs/projects-and-skills.md), [Research](docs/research.md), [Artifacts](docs/artifacts.md) |
-| **Developer or technical practitioner** | [Claude Code](docs/claude-code.md) | [Connectors and MCP](docs/connectors-and-mcp.md), [Evaluation](docs/ai-fluency-and-evaluation.md), [Exercise 6](exercises/06-safe-coding-workflow.md) |
+| **Developer or technical practitioner** | [Claude Code](docs/claude-code.md) | [Connectors and MCP](docs/connectors-and-mcp.md), [Evaluation](docs/ai-fluency-and-evaluation.md), [Exercise 6](exercises/06-safe-coding-workflow.md), [Bonus: Before You Build](docs/before-you-build.md) |
 
 ## Five-minute quick start
 
