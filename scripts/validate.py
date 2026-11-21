@@ -79,6 +79,8 @@ HYGIENE_PATTERNS = {
 }
 
 SKIP_DIRS = {".git", "__pycache__", ".pytest_cache"}
+EM_DASH = "\u2014"
+PROSE_EXEMPT = {"CONTENT_LICENSE.md"}
 FENCE = re.compile(r"^\s*```")
 LINK = re.compile(r"(?<!\!)\[[^\]]*\]\(([^)\s]+)(?:\s+\"[^\"]*\")?\)")
 DATE = re.compile(r"^Last reviewed: \d{4}-\d{2}-\d{2}\s*$", re.M)
@@ -148,6 +150,7 @@ def check_disclaimer(root: Path):
 
 
 def check_links(root: Path):
+    root = root.resolve()
     errors = []
     for path in list_files(root):
         if path.suffix != ".md":
@@ -157,13 +160,31 @@ def check_links(root: Path):
             if re.match(r"^[a-z][a-z0-9+.-]*:", target, re.I):
                 continue  # external or mailto; not checked offline
             file_part, _, anchor = target.partition("#")
-            dest = path if not file_part else (path.parent / file_part).resolve()
+            if file_part.startswith("/"):
+                dest = (root / file_part.lstrip("/")).resolve()
+            else:
+                dest = path if not file_part else (path.parent / file_part).resolve()
+            if file_part and not dest.is_relative_to(root):
+                errors.append(f"{rel(path, root)}: link leaves the repository {target}")
+                continue
             if file_part and not dest.exists():
                 errors.append(f"{rel(path, root)}: broken link {target}")
                 continue
             if anchor and dest.suffix == ".md" and dest.is_file():
                 if anchor.lower() not in heading_slugs(dest.read_text(encoding="utf-8")):
                     errors.append(f"{rel(path, root)}: missing anchor {target}")
+    return errors
+
+
+def check_prose_style(root: Path):
+    """Reject the em dash in authored Markdown. Third-party license text is exempt."""
+    errors = []
+    for path in list_files(root):
+        if path.suffix != ".md" or path.name in PROSE_EXEMPT:
+            continue
+        for number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+            if EM_DASH in line:
+                errors.append(f"{rel(path, root)}:{number}: em dash; use a period, comma, colon, or parentheses")
     return errors
 
 
@@ -316,6 +337,7 @@ CHECKS = [
     ("required files", check_required_files),
     ("disclaimer", check_disclaimer),
     ("relative links", check_links),
+    ("prose style", check_prose_style),
     ("review dates", check_review_dates),
     ("official reference sections", check_docs_have_reference),
     ("exercises", check_exercises),

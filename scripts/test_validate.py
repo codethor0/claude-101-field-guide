@@ -52,6 +52,29 @@ class ValidatorTests(unittest.TestCase):
         self.assertTrue(any("nope.md" in e for e in errs))
         self.assertTrue(any("#missing" in e for e in errs))
 
+    def test_links_must_stay_inside_repository(self):
+        outside = self.root.parent / "outside_target.md"
+        outside.write_text("x", encoding="utf-8")
+        try:
+            make(self.root, {"docs/a.md": f"[up](../../{outside.name}) [abs]({outside})"})
+            errs = v.check_links(self.root)
+            self.assertEqual(len(errs), 2, errs)
+        finally:
+            outside.unlink()
+
+    def test_root_relative_link_resolves_against_repository_root(self):
+        make(self.root, {"docs/a.md": "[ok](/README.md) [bad](/missing.md)", "README.md": "# R\n"})
+        errs = v.check_links(self.root)
+        self.assertEqual(len(errs), 1)
+        self.assertIn("missing.md", errs[0])
+
+    def test_em_dash_reported_with_file_and_line(self):
+        dash = "\u2014"
+        make(self.root, {"docs/a.md": f"fine\nbad {dash} here\n", "CONTENT_LICENSE.md": f"legal {dash} text\n"})
+        errs = v.check_prose_style(self.root)
+        self.assertEqual(len(errs), 1)
+        self.assertTrue(errs[0].startswith("docs/a.md:2:"))
+
     def test_links_in_code_fences_ignored(self):
         make(self.root, {"a.md": "```\n[x](missing.md)\n```\n"})
         self.assertEqual(v.check_links(self.root), [])

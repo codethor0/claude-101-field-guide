@@ -19,7 +19,7 @@ How has the global average price of lithium-ion battery packs changed
 over the last ten years, and how confident are the estimates?
 ```
 
-Several organizations publish annual battery price surveys with different methods. Their figures differ.
+Price surveys from different publishers may use different methods and scopes, so their figures may differ. Part of the exercise is finding out whether they do.
 
 ## Copy-ready prompt
 
