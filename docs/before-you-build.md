@@ -49,7 +49,7 @@ Work in a temporary folder, never in this guide's repository. These commands cop
 
 ```sh
 mkdir -p ~/claude-practice && cd ~/claude-practice
-cp /path/to/claude-101-field-guide/examples/sample-repo/{slugify.py,test_slugify.py,README.md} .
+cp /path/to/claude-101-field-guide/examples/sample-repo/{slugify.py,test_slugify.py,README.md,.gitignore} .
 cp /path/to/claude-101-field-guide/examples/before-you-build/{PROJECT_SPEC.md,CLAUDE.md} .
 git init
 git add .
@@ -58,7 +58,7 @@ python3 -m unittest
 claude
 ```
 
-Replace `/path/to/` with where you cloned this guide. The `git commit` here is only in your private practice folder. It gives you a baseline to compare against. The tests should show 3 passing.
+Replace `/path/to/` with where you cloned this guide. The copied `.gitignore` keeps Python cache files out of Git status. The `git commit` here is only in your private practice folder. It gives you a baseline to compare against. The tests should show 3 passing.
 
 ### Step 5: ask for a plan, with no edits
 
@@ -68,7 +68,7 @@ Do not edit any file. Propose a plan: which files you will change and which
 tests you will add. Wait for my approval.
 ```
 
-This step costs nothing and shows whether Claude understood the brief.
+Planning makes no file changes and shows whether Claude understood the brief. It still uses the model, so it may count toward your usage limits or incur charges, depending on your plan.
 
 ### Step 6: review and approve
 
